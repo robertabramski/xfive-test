@@ -1,0 +1,14 @@
+# Dependencies
+/node_modules
+
+# Logs
+npm-debug.log*
+
+# Database
+/db
+
+# Misc
+.DS_Store
+
+# Temp
+/tmp

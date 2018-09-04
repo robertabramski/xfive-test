@@ -1,0 +1,20 @@
+{
+  "name": "pmr-server",
+  "version": "0.1.0",
+  "description": "Sample application for xfive recruiting",
+  "repository": "https://gitlab-recruitment.xfive.co/javascript/robertabramski-js-test.git",
+  "main": "app.js",
+  "scripts": {
+    "start": "sh bin/start",
+    "server": "node app.js",
+    "client": "sh bin/client",
+    "build": "sh bin/build",
+    "provision": "sh bin/provision"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "nedb": "^1.8.0"
+  },
+  "author": "Robert Abramski",
+  "license": "MIT"
+}
