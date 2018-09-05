@@ -1,5 +1,4 @@
 #!/bin/bash
+node app.js > /dev/null 2>&1 &
 cd client
 npm start
-cd ..
-node app.js
