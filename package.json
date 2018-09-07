@@ -9,6 +9,7 @@
     "server": "node app.js",
     "client": "sh bin/client",
     "build": "sh bin/build",
+    "test": "sh bin/test",
     "provision": "sh bin/provision"
   },
   "dependencies": {

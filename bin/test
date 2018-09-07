@@ -1,0 +1,3 @@
+#!/bin/bash
+cd client
+CI=true npm test $@
