@@ -6,7 +6,7 @@ it('renders without crashing', () => {
   let rectGallery = shallow(<RectGallery />);
 });
 
-it('displays a list of item components', () => {
+it('displays a list of item components by date, newest to oldest', () => {
   let rectGallery = shallow(<RectGallery rects={mockData.rects} />);
   let rectGalleryItems = rectGallery.children();
 

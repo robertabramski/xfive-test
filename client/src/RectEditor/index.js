@@ -28,9 +28,10 @@ class RectEditor extends Component {
   };
 
   saveRect = () => {
+    let body = Object.assign({date: new Date()}, this.state);
     let options = {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json'
       }

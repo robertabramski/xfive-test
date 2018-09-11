@@ -23,8 +23,23 @@ global.localStorage = {
 
 global.mockData = {
   rects: [
-    {width: 25, height: 80, backgroundColor: '#a1ddd2', borderRadius: 5, _id: '9JRtjmxJii5SyySt'},
-    {width: 85, height: 75, backgroundColor: '#379180', borderRadius: 1, _id: 'NuoSgCPd0JUyJjLx'},
-    {width: 35, height: 50, backgroundColor: '#5c1d66', borderRadius: 4, _id: 'OqeZiHL5UvDqHWwo'}
+    {
+      _id: '9JRtjmxJii5SyySt',
+      date: '2018-09-11T02:38:23.424Z',
+      width: 25, height: 80,
+      backgroundColor: '#a1ddd2', borderRadius: 5
+    },
+    {
+      _id: 'NuoSgCPd0JUyJjLx',
+      date: '2018-05-11T02:00:31.424Z',
+      width: 85, height: 75,
+      backgroundColor: '#379180', borderRadius: 1
+    },
+    {
+      _id: 'OqeZiHL5UvDqHWwo',
+      date: '2018-03-11T01:38:30.424Z',
+      width: 35, height: 50,
+      backgroundColor: '#5c1d66', borderRadius: 4
+    }
   ]
 };

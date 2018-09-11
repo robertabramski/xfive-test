@@ -23,9 +23,17 @@ class RectGallery extends Component {
   };
 
   render() {
+    let rects = this.props.rects;
+    let byDate = function(a, b) {
+      if(a.date && b.date) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      }
+      return a;
+    };
+
     return (
       <ul>
-        {this.props.rects ? this.props.rects.map((rect) =>
+        {rects ? rects.sort(byDate).reverse().map((rect) =>
           <RectGalleryItem
             key={rect['_id']} id={rect['_id']}
             onRemove={this.removeRect}
