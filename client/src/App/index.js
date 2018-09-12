@@ -13,8 +13,21 @@ export const MAX_RECT_HEIGHT = 100;
 export const MIN_RECT_BORDER_RADIUS = 0;
 export const MAX_RECT_BORDER_RADIUS = 10;
 export const DEFAULT_RECT_BORDER_RADIUS = 0;
+export const INVERTED_BLACK_HEX = '#7F7F7F';
+export const INVERTED_WHITE_HEX = '#F8F8F8';
 export const DEFAULT_RECT_BG_COLOR = '#FFFFFF';
 export const API_RECT_ENDPOINT = '/api/rect';
+
+/*
+Helper function to derive inverted background
+from background to avoid saving derived data.
+*/
+export const invertBackground = function(hex) {
+  return require('invert-color')(hex, {
+    black: INVERTED_BLACK_HEX,
+    white: INVERTED_WHITE_HEX
+  });
+}
 
 // For true private variables, use a weak map.
 let privates = new WeakMap();
@@ -32,7 +45,8 @@ class App extends Component {
         width: MAX_RECT_WIDTH / 2,
         height: MAX_RECT_HEIGHT / 2,
         backgroundColor: DEFAULT_RECT_BG_COLOR,
-        borderRadius: DEFAULT_RECT_BORDER_RADIUS
+        borderRadius: DEFAULT_RECT_BORDER_RADIUS,
+        invertedBackgroundColor: invertBackground(DEFAULT_RECT_BG_COLOR)
       }
     });
 
@@ -77,6 +91,9 @@ class App extends Component {
   };
 
   handleChange = (props) => {
+    // Set derived inverted background on change.
+    props.invertedBackgroundColor = invertBackground(props.backgroundColor);
+
     // Set state to localStorage as well as React state.
     localStorage.setItem('styleProps', JSON.stringify(props));
     this.setState(props);
@@ -112,7 +129,8 @@ class App extends Component {
             <RectOutput
               width={this.state.width} height={this.state.height}
               backgroundColor={this.state.backgroundColor}
-              borderRadius={this.state.borderRadius} />
+              borderRadius={this.state.borderRadius}
+              invertedBackgroundColor={this.state.invertedBackgroundColor} />
           </div>
           <div className="editor-container">
             <RectEditor

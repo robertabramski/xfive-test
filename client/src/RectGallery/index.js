@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RectGalleryItem from '../RectGalleryItem';
+import { invertBackground } from '../App';
 import { API_RECT_ENDPOINT } from '../App';
 import './style.css';
 
@@ -42,6 +43,7 @@ class RectGallery extends Component {
                 width: rect.width,
                 height: rect.height,
                 backgroundColor: rect.backgroundColor,
+                invertedBackgroundColor: invertBackground(rect.backgroundColor),
                 borderRadius: rect.borderRadius
               }} />
           ) : []}
