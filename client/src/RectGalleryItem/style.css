@@ -4,5 +4,7 @@ div.gallery-item {
 
 div.gallery-item button {
   border: none;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
   border-bottom: 1px solid #333;
 }
