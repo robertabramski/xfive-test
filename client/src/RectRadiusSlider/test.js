@@ -12,7 +12,7 @@ it('handles state change when slider is updated', () => {
     expect(borderRadius).toEqual({borderRadius: radius * 2});
   };
   let rectRadiusSlider = shallow(<RectRadiusSlider borderRadius={radius} onChange={onChange} />);
-  let slider = rectRadiusSlider.childAt(0);
+  let slider = rectRadiusSlider.find('.radius');
 
   slider.props().onChange(radius * 2);
 });

@@ -12,7 +12,7 @@ it('handles width change when slider is updated', () => {
     expect(props).toHaveProperty('width', width * 2);
   };
   let rectSizeSliders = shallow(<RectSizeSliders width={width} onChange={onChange} />);
-  let slider = rectSizeSliders.childAt(0);
+  let slider = rectSizeSliders.find('.width');
 
   slider.props().onChange(width * 2);
 });
@@ -23,7 +23,7 @@ it('handles height change when slider is updated', () => {
     expect(props).toHaveProperty('height', height * 2);
   };
   let rectSizeSliders = shallow(<RectSizeSliders height={height} onChange={onChange} />);
-  let slider = rectSizeSliders.childAt(1);
+  let slider = rectSizeSliders.find('.height');
 
   slider.props().onChange(height * 2);
 });

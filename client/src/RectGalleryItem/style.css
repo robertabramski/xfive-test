@@ -1,0 +1,8 @@
+div.gallery-item {
+  padding: 20px;
+}
+
+div.gallery-item button {
+  border: none;
+  border-bottom: 1px solid #333;
+}

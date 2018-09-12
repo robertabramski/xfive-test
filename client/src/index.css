@@ -1,5 +1,44 @@
-body {
+/* Font import. */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+/* General styling. */
+html, body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  overflow: hidden;
+  background-color: #CCC;
+  color: #DDD;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slider-group label {
+  font-size: smaller;
+  color: #333;
+}
+
+/* Styling changes for 3rd party components. */
+.rc-slider {
+  padding: 2px 0 15px 0;
+}
+
+.rc-slider-rail, .rc-slider-track {
+  height: 11px;
+}
+
+.rc-slider-rail:hover, .rc-slider-step:hover {
+  cursor: pointer;
+}
+
+.rc-slider-track {
+  background-color: #AAA;
+}
+
+.rc-slider-handle {
+  border: 2px solid #AAA;
+  margin-top: -2px;
+}
+
+.rc-slider-handle:hover, .rc-slider-handle:focus {
+  border: 2px solid #AAA;
+  box-shadow: none;
 }

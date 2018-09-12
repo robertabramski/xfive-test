@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { MIN_RECT_BORDER_RADIUS, MAX_RECT_BORDER_RADIUS } from '../App';
 
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-
-import { MIN_RECT_BORDER_RADIUS, MAX_RECT_BORDER_RADIUS } from '../App';
 
 class RectRadiusSlider extends Component {
   constructor(props) {
@@ -13,12 +12,6 @@ class RectRadiusSlider extends Component {
     };
   }
 
-  containerStyle = {
-    position: 'relative',
-    width: '100px',
-    height: '40px'
-  };
-
   handleChange = (value) => {
     this.setState({borderRadius: value}, function() {
       this.props.onChange(this.state);
@@ -27,8 +20,9 @@ class RectRadiusSlider extends Component {
 
   render() {
     return (
-      <div style={this.containerStyle}>
-        <Slider
+      <div className="slider-group">
+        <label>Radius</label>
+        <Slider className="radius"
           min={MIN_RECT_BORDER_RADIUS} max={MAX_RECT_BORDER_RADIUS}
           value={this.state.borderRadius}
           defaultValue={this.props.borderRadius}

@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { CustomPicker } from 'react-color';
 import { Hue, Saturation } from 'react-color/lib/components/common';
+import './style.css';
+
+class RectColorPickerHuePointer extends Component {
+  render() {
+    return <div className="hue-pointer"></div>
+  }
+}
+
+class RectColorPickerSaturationPointer extends Component {
+  render() {
+    return <div className="saturation-pointer"></div>
+  }
+}
 
 class RectColorPicker extends Component {
-  containerStyle = {
-    position: 'relative',
-    width: '100px',
-    height: '40px'
-  };
-
   render() {
     return (
-      <div style={this.containerStyle}>
-        <div style={{height: '10px', position: 'relative'}}>
-          <Hue {...this.props} />
+      <div className="color-picker">
+        <div className="hue">
+          <Hue {...this.props} pointer={RectColorPickerHuePointer} />
         </div>
-        <div style={{height: '30px', position: 'relative'}}>
-          <Saturation {...this.props} />
+        <div className="saturation">
+          <Saturation {...this.props} pointer={RectColorPickerSaturationPointer} />
         </div>
       </div>
     );

@@ -16,31 +16,33 @@ export const DEFAULT_RECT_BORDER_RADIUS = 0;
 export const DEFAULT_RECT_BG_COLOR = '#FFFFFF';
 export const API_RECT_ENDPOINT = '/api/rect';
 
-// For functional private variables.
+// For true private variables, use a weak map.
 let privates = new WeakMap();
 
 class App extends Component {
   constructor() {
     super();
+
     let localStyleProps = localStorage.getItem('styleProps');
 
-    if(localStyleProps) {
-      this.state = JSON.parse(localStyleProps);
-    } else {
-      this.state = {
+    // Set all privates for later usage.
+    privates.set(this, {
+      fetching: null,
+      defaultRect: {
         width: MAX_RECT_WIDTH / 2,
         height: MAX_RECT_HEIGHT / 2,
         backgroundColor: DEFAULT_RECT_BG_COLOR,
         borderRadius: DEFAULT_RECT_BORDER_RADIUS
-      };
+      }
+    });
+
+    if(localStyleProps) {
+      this.state = JSON.parse(localStyleProps);
+    } else {
+      this.state = privates.get(this).defaultRect;
     }
 
     this.state.rects = [];
-
-    // Set all privates for later usage.
-    privates.set(this, {
-      fetching: null
-    });
   }
 
   componentDidMount() {
@@ -63,12 +65,6 @@ class App extends Component {
     privates.get(this).fetching.abort();
   }
 
-  containerStyle = {
-    padding: '20px',
-    margin: '0 auto',
-    backgroundColor: '#AAAAAA'
-  };
-
   removeRect = (id) => {
     this.setState(prevState => {
       // Use arr.slice to create a new array from previous.
@@ -81,6 +77,7 @@ class App extends Component {
   };
 
   handleChange = (props) => {
+    // Set state to localStorage as well as React state.
     localStorage.setItem('styleProps', JSON.stringify(props));
     this.setState(props);
   };
@@ -95,23 +92,40 @@ class App extends Component {
     this.setState(prevState => ({
       rects: [newRect, ...prevState.rects]
     }));
+
+    // TODO: Reset back to default rect state to avoid button blast duplicates.
+    localStorage.setItem('styleProps', JSON.stringify(newRect));
+    this.setState(newRect);
   };
 
   render() {
     return (
-      <div style={this.containerStyle}>
-        <RectOutput
-          width={this.state.width} height={this.state.height}
-          backgroundColor={this.state.backgroundColor}
-          borderRadius={this.state.borderRadius} />
-        <RectEditor
-          width={this.state.width} height={this.state.height}
-          backgroundColor={this.state.backgroundColor}
-          borderRadius={this.state.borderRadius}
-          allowSave={this.state.isSameRect}
-          onSave={this.handleSave} onChange={this.handleChange} />
-        <RectGallery onRemove={this.removeRect} rects={this.state.rects} />
-      </div>
+      <main>
+        <header>
+          <h2>
+            {this.state.rects.length === 0 ? 'No' : this.state.rects.length}&nbsp;
+            {this.state.rects.length === 1 ? 'Rect' : 'Rects'} Pimped
+          </h2>
+        </header>
+        <section className="editor">
+          <div className="output-container">
+            <RectOutput
+              width={this.state.width} height={this.state.height}
+              backgroundColor={this.state.backgroundColor}
+              borderRadius={this.state.borderRadius} />
+          </div>
+          <div className="editor-container">
+            <RectEditor
+              width={this.state.width} height={this.state.height}
+              backgroundColor={this.state.backgroundColor}
+              borderRadius={this.state.borderRadius}
+              onSave={this.handleSave} onChange={this.handleChange} />
+          </div>
+        </section>
+        <section className="gallery">
+          <RectGallery onRemove={this.removeRect} rects={this.state.rects} />
+        </section>
+      </main>
     );
   }
 }

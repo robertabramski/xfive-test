@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RectButton from '../RectButton';
+import RectOutput from '../RectOutput';
 import './style.css';
 
 class RectGalleryItem extends Component {
@@ -8,10 +10,10 @@ class RectGalleryItem extends Component {
 
   render() {
     return (
-      <li key={this.props.id}>
-        <div style={this.props.styleProps}></div>
-        <button onClick={this.removeRect}>Remove</button>
-      </li>
+      <div key={this.props.id} className="gallery-item">
+        <RectOutput {...this.props.styleProps} />
+        <RectButton name={'Remove'} onClick={this.removeRect} />
+      </div>
     );
   }
 }

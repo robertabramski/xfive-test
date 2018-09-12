@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import RectButton from '../RectButton';
 import RectSizeSliders from '../RectSizeSliders';
 import RectRadiusSlider from '../RectRadiusSlider';
 import RectColorPicker from '../RectColorPicker';
 import { API_RECT_ENDPOINT } from '../App';
+import './style.css';
 
 class RectEditor extends Component {
   constructor(props) {
@@ -44,19 +46,22 @@ class RectEditor extends Component {
 
   render() {
     return (
-      <div>
-        <RectSizeSliders
-          width={this.state.width}
-          height={this.state.height}
-          onChange={this.handleRangeChange} />
-        <RectRadiusSlider
-          borderRadius={this.state.borderRadius}
-          onChange={this.handleRangeChange} />
-        <RectColorPicker
-          color={this.state.backgroundColor}
-          onChange={this.handleColorChange} />
-        <button
-          onClick={this.saveRect}>Save</button>
+      <div className="rect-editor">
+        <div className="section sliders">
+          <RectSizeSliders
+            width={this.state.width}
+            height={this.state.height}
+            onChange={this.handleRangeChange} />
+          <RectRadiusSlider
+            borderRadius={this.state.borderRadius}
+            onChange={this.handleRangeChange} />
+          </div>
+        <div className="section color-picker">
+          <RectColorPicker
+            color={this.state.backgroundColor}
+            onChange={this.handleColorChange} />
+          </div>
+        <RectButton name={'Save'} onClick={this.saveRect} />
       </div>
     );
   }

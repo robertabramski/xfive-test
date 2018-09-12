@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import RectGalleryItem from './';
 
 let styleProps = null;
@@ -18,10 +18,14 @@ it('renders without crashing', () => {
 });
 
 it('accepts style props and displays them', () => {
-  let rectGalleryItem = shallow(<RectGalleryItem styleProps={styleProps} />);
-  let rectDiv = rectGalleryItem.find('div');
+  let rectGalleryItem = mount(<RectGalleryItem styleProps={styleProps} />);
+  let rectOutputDiv = rectGalleryItem.find('.output');
+  let outputDivStyleProps = rectOutputDiv.props().style;
 
-  expect(rectDiv.props().style).toEqual(styleProps);
+  expect(outputDivStyleProps.width).toEqual(styleProps.width);
+  expect(outputDivStyleProps.height).toEqual(styleProps.height);
+  expect(outputDivStyleProps.backgroundColor).toEqual(styleProps.backgroundColor);
+  expect(outputDivStyleProps.borderRadius).toEqual(styleProps.borderRadius);
 });
 
 it('passes the rect id when the remove button is clicked', () => {
@@ -29,7 +33,7 @@ it('passes the rect id when the remove button is clicked', () => {
   let onRemove = (id) => {
     expect(id).toEqual(propId);
   };
-  let rectGalleryItem = shallow(
+  let rectGalleryItem = mount(
     <RectGalleryItem id={propId} styleProps={styleProps} onRemove={onRemove} />
   );
   let removeButton = rectGalleryItem.find('button');

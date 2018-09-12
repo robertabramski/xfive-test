@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "invert-color": "^1.5.0",
     "promise-cancel": "^2.0.1",
     "prop-types": "^15.6.2",
     "rc-slider": "^8.6.2",

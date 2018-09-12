@@ -32,7 +32,7 @@ class RectGallery extends Component {
     };
 
     return (
-      <ul>
+      <div className="gallery">
         {rects ? rects.sort(byDate).reverse().map((rect) =>
           <RectGalleryItem
             key={rect['_id']} id={rect['_id']}
@@ -44,7 +44,7 @@ class RectGallery extends Component {
               borderRadius: rect.borderRadius
             }} />
         ) : []}
-      </ul>
+      </div>
     );
   }
 }
