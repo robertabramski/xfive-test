@@ -6,9 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A customized implementation of the [react-color](https://casesandberg.github.io/react-color) component was used for changing the colors of the rect. For size and border radius editing, [rc-slider](http://react-component.github.io/slider/) component was used for a range input.
 
-For background color inversion, [invert-color](https://github.com/onury/invert-color) was used.
-
-More to come as the stack develops.
+For background color inversion, [invert-color](https://github.com/onury/invert-color) was used. Color inversion functionality did not make it to the `master` repo, but experiment branches exist that use present this feature.
 
 ## Development Workflow
 
