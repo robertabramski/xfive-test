@@ -4,21 +4,32 @@ main {
 }
 
 header {
+  width: 100%;
   flex: 1 100%;
   min-height: 50px;
+  max-height: 70px;
+  height: 10vh;
   background-color: #333;
   font-weight: 700;
   text-align: center;
+  display: table;
+}
+
+header h2 {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  padding: 10px 0;
 }
 
 section.editor, section.gallery {
-  min-height: 300px;
   align-items: flex-start;
 }
 
 section.editor {
+  height: 100vh;
   flex: 1 30%;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
 section.editor .background {
@@ -37,7 +48,16 @@ section.gallery {
 /* Responsive considerations. */
 @media (max-width: 480px) {
   header {
-    display: none;
+    height: 5vh;
+  }
+
+  div.gallery {
+    height: 50vh;
+    flex-flow: column wrap;
+  }
+
+  section.editor {
+    height: auto;
   }
 
   section.editor, section.gallery {
@@ -56,5 +76,11 @@ section.gallery {
 
   section.editor .output-container {
     flex: 1 40%;
+  }
+}
+
+@media (max-width: 480px) and (max-height: 540px) {
+  header {
+    display: none;
   }
 }
