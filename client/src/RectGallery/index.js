@@ -32,18 +32,20 @@ class RectGallery extends Component {
     };
 
     return (
-      <div className="gallery">
-        {rects ? rects.sort(byDate).reverse().map((rect) =>
-          <RectGalleryItem
-            key={rect['_id']} id={rect['_id']}
-            onRemove={this.removeRect}
-            styleProps={{
-              width: rect.width,
-              height: rect.height,
-              backgroundColor: rect.backgroundColor,
-              borderRadius: rect.borderRadius
-            }} />
-        ) : []}
+      <div className="RectGallery">
+        <div className="gallery">
+          {rects ? rects.sort(byDate).reverse().map((rect) =>
+            <RectGalleryItem
+              key={rect['_id']} id={rect['_id']}
+              onRemove={this.removeRect}
+              styleProps={{
+                width: rect.width,
+                height: rect.height,
+                backgroundColor: rect.backgroundColor,
+                borderRadius: rect.borderRadius
+              }} />
+          ) : []}
+        </div>
       </div>
     );
   }

@@ -46,7 +46,7 @@ class RectEditor extends Component {
 
   render() {
     return (
-      <div className="rect-editor">
+      <div className="RectEditor">
         <div className="section sliders">
           <RectSizeSliders
             width={this.state.width}

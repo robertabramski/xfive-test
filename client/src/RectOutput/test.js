@@ -30,10 +30,10 @@ it('displays output changes when props change', () => {
   rectOutput.setProps(props, testExpectation);
 
   function testExpectation() {
-    let outputDiv = rectOutput.children();
+    let outputDiv = rectOutput.find('.output');
 
-    expect(rectOutput.children().props().style).toHaveProperty('width', width);
-    expect(rectOutput.children().props().style).toHaveProperty('height', height);
+    expect(outputDiv.props().style).toHaveProperty('width', width);
+    expect(outputDiv.props().style).toHaveProperty('height', height);
     expect(outputDiv.props().style.backgroundColor).toEqual(backgroundColor);
     expect(outputDiv.props().style.borderRadius).toEqual(borderRadius);
   }

@@ -20,13 +20,15 @@ class RectRadiusSlider extends Component {
 
   render() {
     return (
-      <div className="slider-group">
-        <label>Radius</label>
-        <Slider className="radius"
-          min={MIN_RECT_BORDER_RADIUS} max={MAX_RECT_BORDER_RADIUS}
-          value={this.state.borderRadius}
-          defaultValue={this.props.borderRadius}
-          onChange={this.handleChange} />
+      <div className="RectRadiusSlider">
+        <div className="slider-group">
+          <label>Radius</label>
+          <Slider className="radius"
+            min={MIN_RECT_BORDER_RADIUS} max={MAX_RECT_BORDER_RADIUS}
+            value={this.state.borderRadius}
+            defaultValue={this.props.borderRadius}
+            onChange={this.handleChange} />
+        </div>
       </div>
     );
   }
