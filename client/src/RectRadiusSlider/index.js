@@ -13,7 +13,7 @@ class RectRadiusSlider extends Component {
   }
 
   handleChange = (value) => {
-    this.setState({borderRadius: value}, function() {
+    this.setState({borderRadius: value}, () => {
       this.props.onChange(this.state);
     });
   };

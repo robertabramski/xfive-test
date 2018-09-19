@@ -18,13 +18,13 @@ class RectEditor extends Component {
   }
 
   handleColorChange = (color) => {
-    this.setState({backgroundColor: color.hex}, function() {
+    this.setState({backgroundColor: color.hex}, () => {
       this.props.onChange(this.state);
     });
   };
 
   handleRangeChange = (props) => {
-    this.setState(props, function() {
+    this.setState(props, () => {
       this.props.onChange(this.state);
     });
   };

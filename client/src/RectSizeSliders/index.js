@@ -16,13 +16,13 @@ class RectSizeSliders extends Component {
   }
 
   handleWidthChange = (value) => {
-    this.setState({width: value}, function() {
+    this.setState({width: value}, () => {
       this.props.onChange({width: value, height: this.state.height});
     });
   };
 
   handleHeightChange = (value) => {
-    this.setState({height: value}, function() {
+    this.setState({height: value}, () => {
       this.props.onChange({width: this.state.width, height: value});
     });
   };
