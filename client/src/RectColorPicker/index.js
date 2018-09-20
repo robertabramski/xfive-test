@@ -18,12 +18,14 @@ class RectColorPickerSaturationPointer extends Component {
 class RectColorPicker extends Component {
   render() {
     return (
-      <div className="color-picker">
-        <div className="hue">
-          <Hue {...this.props} pointer={RectColorPickerHuePointer} />
-        </div>
-        <div className="saturation">
-          <Saturation {...this.props} pointer={RectColorPickerSaturationPointer} />
+      <div className="RectColorPicker">
+        <div className="color-picker">
+          <div className="hue">
+            <Hue {...this.props} pointer={RectColorPickerHuePointer} />
+          </div>
+          <div className="saturation">
+            <Saturation {...this.props} pointer={RectColorPickerSaturationPointer} />
+          </div>
         </div>
       </div>
     );

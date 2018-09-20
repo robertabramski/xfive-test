@@ -8,7 +8,9 @@ class RectButton extends Component {
 
   render() {
     return (
-      <button onClick={this.onClick}>{this.props.name}</button>
+      <div className="RectButton">
+        <button onClick={this.onClick}>{this.props.name}</button>
+      </div>
     );
   }
 }

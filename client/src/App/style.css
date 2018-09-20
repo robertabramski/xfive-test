@@ -51,7 +51,7 @@ section.gallery {
     height: 5vh;
   }
 
-  div.gallery {
+  .RectGallery div.gallery {
     height: 50vh;
     flex-flow: column wrap;
   }
@@ -69,7 +69,7 @@ section.gallery {
     margin-right: 5%;
   }
 
-  section.editor .editor-container .rect-editor {
+  section.editor .editor-container .RectEditor {
     width: 100%;
     margin-right: 5%;
   }

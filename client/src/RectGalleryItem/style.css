@@ -1,9 +1,9 @@
-div.gallery-item {
+.RectGalleryItem div.gallery-item {
   padding: 20px;
 }
 
-div.gallery-item button {
-  border: none;
+.RectGalleryItem div.gallery-item button {
+  border-top: none;
   border-left: 1px solid #333;
   border-right: 1px solid #333;
   border-bottom: 1px solid #333;

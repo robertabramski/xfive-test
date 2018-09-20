@@ -1,18 +1,17 @@
-button {
+.RectButton button {
   width: 100%;
   padding: 10px;
   background-color: transparent;
   color: #333;
-  border: none;
   border: 1px solid #333;
   font-size: 1em;
   font-family: 'Montserrat', sans-serif;
 }
 
-button:hover {
+.RectButton button:hover {
   cursor: pointer;
 }
 
-button:focus {
+.RectButton button:focus {
   outline: none;
 }

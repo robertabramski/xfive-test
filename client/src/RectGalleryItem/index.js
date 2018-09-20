@@ -10,9 +10,11 @@ class RectGalleryItem extends Component {
 
   render() {
     return (
-      <div key={this.props.id} className="gallery-item">
-        <RectOutput {...this.props.styleProps} />
-        <RectButton name={'Remove'} onClick={this.removeRect} />
+      <div className="RectGalleryItem">
+        <div key={this.props.id} className="gallery-item">
+          <RectOutput {...this.props.styleProps} />
+          <RectButton name={'Remove'} onClick={this.removeRect} />
+        </div>
       </div>
     );
   }
