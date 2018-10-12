@@ -12,3 +12,6 @@ npm-debug.log*
 
 # Temp
 /tmp
+
+# Deployment
+/bin/deploy
