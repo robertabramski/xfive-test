@@ -42,6 +42,7 @@ section.gallery {
   display: flex;
   height: 100vh;
   overflow: scroll;
+  outline: 1px solid #333;
 }
 
 /* Responsive considerations. */
@@ -53,7 +54,6 @@ section.gallery {
   .RectGallery div.gallery {
     height: 50vh;
     flex-flow: column wrap;
-    border-left: none;
   }
 
   section.editor {
